@@ -117,15 +117,15 @@ Each project gets a `.mcp.json` with mempalace configured:
 
 ```bash
 # 20+ projects now wired
-ai-marketing/      ananas-connect/     anandas-os/
-ananas-ai/         ananas-crm/         computer-use-mcp/
-ananas-app/        ananas-gamification powerbi-reports/
+project-alpha/      project-beta/     project-gamma/
+feature-frontend/         feature-backend/         feature-mobile/
+docs-internal/        experiments sandbox/
 ...
 ```
 
 ### Unified Memory Palace
 
-- **Claude session** learns about `ananas-ai` → **Codex** remembers it too
+- **Claude session** learns about `project-alpha` → **Codex** remembers it too
 - **Gemini** discovers a database pattern → **Qwen** can search it
 - **No more context loss** when switching between AI assistants
 
