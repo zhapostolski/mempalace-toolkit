@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Project-wide Mempalace wiring across all Ananas Marketing projects
+- Project-wide Mempalace wiring across all Your Project projects
 - Template infrastructure for new project setup
 - Centralized memory palace shared across all AI sessions
 

@@ -2,8 +2,8 @@
 
 ## Before Pushing
 
-- [x] Repository initialized at `~/projects/mempalace`
-- [x] All source code copied from `~/.mempalace/src`
+- [x] Repository initialized at `<repository-path>`
+- [x] All source code copied from `/path/to/.mempalace/src`
 - [x] `.gitignore` configured (excludes palace data, secrets, venv)
 - [x] LICENSE file present (MIT)
 - [x] README.md with full documentation
@@ -39,7 +39,7 @@ gh repo create milla-jovovich/mempalace --public --description "The highest-scor
 ### 2. Push Repository
 
 ```bash
-cd ~/projects/mempalace
+cd <repository-path>
 
 # Add remote (replace with your actual username if different)
 git remote add origin https://github.com/milla-jovovich/mempalace.git
@@ -111,7 +111,7 @@ pytest tests/ -v
 
 ```bash
 # Run these commands to check status
-cd ~/projects/mempalace
+cd <repository-path>
 git log --oneline -1
 git status
 ls -la

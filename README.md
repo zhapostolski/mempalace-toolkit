@@ -32,7 +32,7 @@ Built on top of the amazing [MemPalace](https://github.com/MemPalace/mempalace) 
 
 ## Real-World Usage
 
-✨ **Ananas Marketing Ecosystem** - Production deployment:
+✨ **Your Ecosystem** - Production deployment:
 - **20+ projects** wired with unified memory
 - **5 AI sessions** (Claude/Codex/Gemini/Qwen/claude-fcc) sharing single palace
 - **Automated hooks** saving memory on every session stop/compact
@@ -66,7 +66,7 @@ cat > .mcp.json << 'EOF'
       "command": "python3",
       "args": ["-m", "mempalace.mcp_server"],
       "env": {
-        "PYTHONPATH": "/home/zapostolski/.mempalace/src"
+        "PYTHONPATH": "/path/to/.mempalace/src"
       }
     }
   }
@@ -79,12 +79,12 @@ EOF
 
 ### Multi-Session Setup
 
-All AI sessions share the same palace at `~/.mempalace/palace/`:
+All AI sessions share the same palace at `/path/to/palace/`:
 
 | Session | Config File | Hooks |
 |---------|-------------|-------|
 | **Claude** | `~/.claude/settings.json` | ✅ Stop + PreCompact |
-| **Codex** | `~/projects/ai-codex/.mcp.json` | ✅ Via tmux session |
+| **Codex** | `<path-to-codex-project>/.mcp.json` | ✅ Via tmux session |
 | **Gemini** | `~/.gemini/settings.json` | ✅ AfterAgent + PreCompact |
 | **Qwen** | `~/.qwen/settings.json` | ✅ Stop + PreCompact + SessionEnd |
 | **claude-fcc** | `~/.claude-fcc/settings.json` | ✅ Stop + PreCompact |
@@ -94,7 +94,7 @@ All AI sessions share the same palace at `~/.mempalace/palace/`:
 ## Architecture
 
 ```
-~/.mempalace/palace/
+/path/to/palace/
          │
          ├── chroma.sqlite3 (vector storage)
          ├── knowledge_graph.sqlite3 (entity relationships)
@@ -133,7 +133,7 @@ ananas-app/        ananas-gamification powerbi-reports/
 
 ```bash
 # Template available at:
-~/.mempalace/project-template/.mcp.json
+/path/to/template/.mcp.json
 ~/.claude/project-templates/settings.json
 ```
 
