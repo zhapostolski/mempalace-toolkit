@@ -1,0 +1,17 @@
+# Code owners for MemPalace
+
+# Default owner - entire repo
+* @zapostolski
+
+# Core maintainers
+/mempalace/ @zapostolski
+/hooks/ @zapostolski
+/benchmarks/ @zapostolski
+
+# Documentation
+*.md @zapostolski
+/docs/ @zapostolski
+
+# CI/CD
+.github/ @zapostolski
+*.yml @zapostolski
