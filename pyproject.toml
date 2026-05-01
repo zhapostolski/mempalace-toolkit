@@ -1,7 +1,10 @@
 [project]
-name = "mempalace"
-version = "3.0.11"
-description = "Give your AI a memory — mine projects and conversations into a searchable palace. No API key required."
+name = "mempalace-toolkit"
+version = "1.0.0"
+description = "Enterprise deployment automation for MemPalace — multi-project wiring, cross-session memory, and team deployment templates."
+dependencies = [
+    "mempalace>=3.3.0",
+]
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"

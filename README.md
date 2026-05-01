@@ -1,10 +1,27 @@
 <div align="center">
 
-<img src="assets/mempalace_logo.png" alt="MemPalace" width="280">
+<img src="assets/mempalace_logo.png" alt="MemPalace Toolkit" width="280">
 
-# MemPalace
+# MemPalace Toolkit
 
-### The highest-scoring AI memory system ever benchmarked. And it's free.
+### Enterprise deployment automation for [MemPalace](https://github.com/MemPalace/mempalace)
+
+**Multi-project wiring · Cross-session memory · Team deployment templates**
+
+</div>
+
+---
+
+## What It Is
+
+**MemPalace Toolkit** extends the official [MemPalace](https://github.com/MemPalace/mempalace) (50K+ stars) with enterprise-grade deployment automation:
+
+- **Multi-project wiring** — 20+ projects share a single unified memory palace
+- **Cross-session memory** — Claude, Codex, Gemini, Qwen all save to the same palace
+- **Template-based deployment** — One command wires any new project
+- **Team coordination** — Shared knowledge across all AI assistants
+
+Built on top of the amazing [MemPalace](https://github.com/MemPalace/mempalace) by Milla Jovovich.
 
 <br>
 
