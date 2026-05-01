@@ -8,7 +8,7 @@
 
 **Multi-project wiring · Cross-session memory · Team deployment templates**
 
-[![](https://img.shields.io/badge/version-1.0.0-4dc9f6?style=flat-square)](https://github.com/milla-jovovich/mempalace-toolkit)
+[![](https://img.shields.io/badge/version-1.0.0-4dc9f6?style=flat-square)](https://github.com/zhapostolski/mempalace-toolkit)
 [![](https://img.shields.io/badge/license-MIT-b0e8ff?style=flat-square)](LICENSE)
 
 **Enterprise-grade memory for teams using multiple AI assistants**
@@ -180,5 +180,27 @@ Built on top of [MemPalace](https://github.com/MemPalace/mempalace) by Milla Jov
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/milla-jovovich/mempalace-toolkit/issues)
+- **Issues**: [GitHub Issues](https://github.com/zhapostolski/mempalace-toolkit/issues)
 - **MemPalace Discord**: https://discord.com/invite/ycTQQCu6kn
+
+---
+
+## 💼 Enterprise Features
+
+Looking for team deployment, custom integrations, or support?
+
+### Services Available
+
+| Service | Description | Contact |
+|---------|-------------|---------|
+| **Team Setup** | Wire your entire team's AI sessions with shared memory | [Email](mailto:your-email@example.com) |
+| **Custom Integrations** | Connect MemPalace to Slack, Jira, Notion, etc. | [Email](mailto:your-email@example.com) |
+| **Training & Workshops** | Teach your team how to use AI memory effectively | [Email](mailto:your-email@example.com) |
+| **Priority Support** | SLA-backed support for enterprise deployments | [Email](mailto:your-email@example.com) |
+
+### Open Source + Commercial
+
+- **Community Edition**: Free, MIT licensed (this repo)
+- **Enterprise Edition**: Custom features, SLA, on-premise deployment
+
+---
