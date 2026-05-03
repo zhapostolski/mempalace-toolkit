@@ -1,8 +1,26 @@
 #!/bin/bash
 # MEMPALACE SAVE HOOK — Auto-detect harness (claude-code, codex, opencode, claude)
 #
-# Add to Claude Code settings.json (hooks.Stop) or use directly.
-# For Codex, add to .codex/hooks.json with "type": "command".
+# Claude Code "Stop" hook. After every assistant response:
+# 1. Counts human messages in the session transcript
+# 2. Every SAVE_INTERVAL messages, BLOCKS the AI from stopping
+# 3. Returns a reason telling the AI to save structured diary + palace entries
+# 4. AI does the save (topics, decisions, code, quotes → organized into palace)
+# 5. Next Stop fires with stop_hook_active=true → lets AI stop normally
+#
+# === INSTALL ===
+# Add to .claude/settings.local.json:
+#
+#   "hooks": {
+#     "Stop": [{
+#       "matcher": "*",
+#       "hooks": [{
+#         "type": "command",
+#         "command": "/absolute/path/to/mempal_save_hook.sh",
+#         "timeout": 30
+#       }]
+#     }]
+#   }
 
 set -euo pipefail
 
@@ -10,42 +28,19 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MEMPALACE_SRC="$(dirname "$SCRIPT_DIR")"
 export PYTHONPATH="${PYTHONPATH:+$PYTHONPATH:}$MEMPALACE_SRC"
 
-INPUT=$(cat)
+# Pin to the mempalace venv (chromadb etc.). Override via MEMPAL_PYTHON.
+MEMPAL_PYTHON="${MEMPAL_PYTHON:-$HOME/.mempalace/venv/bin/python}"
+[ -x "$MEMPAL_PYTHON" ] || MEMPAL_PYTHON="python3"
 
+INPUT=$(cat)
 HARNESS="claude-code"
 PARENT_CMD=$(ps -p $PPID -o comm= 2>/dev/null | tr -d ' ' || echo "")
-
 case "$PARENT_CMD" in
-    codex|Codex)
-        HARNESS="codex"
-        ;;
-    opencode|Opencode)
-        HARNESS="opencode"
-        ;;
-    claude|Claude|claude-sonnet*|claude-code)
-        HARNESS="claude-code"
-        ;;
-    gemini|Gemini|gemini-cli)
-        HARNESS="gemini"
-        ;;
-    qwen|Qwen|qwen-code)
-        HARNESS="qwen"
-        ;;
-    droid|Droid|dask|deepseek)
-        HARNESS="deepseek"
-        ;;
-    *)
-        # Check for indicators in the input
-        if echo "$INPUT" | grep -q "claude-code"; then
-            HARNESS="claude-code"
-        elif echo "$INPUT" | grep -q "gemini-cli"; then
-            HARNESS="gemini"
-        elif echo "$INPUT" | grep -q "qwen-code"; then
-            HARNESS="qwen"
-        elif echo "$INPUT" | grep -q '"transcript_path".*codex"'; then
-            HARNESS="codex"
-        fi
-        ;;
+  codex|Codex) HARNESS="codex" ;;
+  gemini|Gemini|gemini-cli) HARNESS="gemini" ;;
+  qwen|Qwen|qwen-code) HARNESS="qwen" ;;
+  opencode|Opencode) HARNESS="opencode" ;;
+  *) ;;
 esac
 
-printf '%s' "$INPUT" | python3 -m mempalace hook run --hook stop --harness "$HARNESS"
+printf '%s' "$INPUT" | "$MEMPAL_PYTHON" -m mempalace hook run --hook stop --harness "$HARNESS"
